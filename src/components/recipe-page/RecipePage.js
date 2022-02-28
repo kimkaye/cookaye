@@ -6,7 +6,6 @@ import Alert from "../Alert";
 import {connect} from 'react-redux';
 import { searchRecipesAction } from '../../actions/index'
 import { Oval } from  'react-loader-spinner'
-import Scroll from '../Scroll'
 
 
 const RecipePage = (props) => {
@@ -25,7 +24,6 @@ const RecipePage = (props) => {
     };
 
     return (
-
         <div className="RecipePage">
             <form onSubmit={onSubmit} className="search-form">
                 {alert !== "" && <Alert alert={alert}/>}

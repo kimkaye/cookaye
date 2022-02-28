@@ -1,6 +1,7 @@
 import Users from '../models/UserModel.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import fetch from 'node-fetch';
 
 export const Register = async (req, res) => {
   console.log(req.body);
@@ -224,4 +225,25 @@ export const Logout = async (req,res) => {
     })
 }
 
-
+export const SearchRecipesAction = async(req,res) => {
+    let recipeName = req.query.recipeName;
+    const APP_ID = "52a82f98";
+    const APP_KEY = "7f861f87ff0f42bf8ae76ae412cb89ac";
+    const url = `https://api.edamam.com/search?q=${recipeName}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+    const options = {
+        method: "GET",
+        headers: {
+            Accept: "application/json",
+            // "Content-Type": "application/json;charset=UTF-8",
+        },
+    };
+    fetch(url, options)
+        .then((response) => response.json())
+        .then((searchResponse) => {
+            console.log(searchResponse);
+            res.json(searchResponse)
+        }).catch((err) => {
+            console.error(err)
+            res.status(404).json({msg:'Search not found'})
+    });
+};

@@ -78,15 +78,14 @@ const getFavouritesSuccess = (favouriteRecipes) => {
     }
 }
 
-//2.
+// 2.
 export const searchRecipesAction = (recipeName) => {
     console.log("---- Redux Thunk ---- NEW ACTION CREATOR ---- ")
 
     return dispatch => {
         dispatch(beginRecipeSearch());
-        const APP_ID = "52a82f98";
-        const APP_KEY = "7f861f87ff0f42bf8ae76ae412cb89ac";
-        const url = `https://api.edamam.com/search?q=${recipeName}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+        const url = `http://localhost:5001/user/searchResults?recipeName=${recipeName}`;
         const options = {
             method: "GET",
             headers: {

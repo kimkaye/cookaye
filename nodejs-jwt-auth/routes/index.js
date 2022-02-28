@@ -5,7 +5,7 @@ import {
   GetUserInfo,
   AddToUserFavourites,
   GetUserFavourites,
-  DeleteFromFavourites, Logout
+  DeleteFromFavourites, Logout, SearchRecipesAction
 } from '../controllers/Users.js'
 import {VerifyToken} from '../middleware/VerifyToken.js'
 
@@ -18,8 +18,9 @@ router.get('/user', GetUserInfo);
 router.post('/user/favourites', AddToUserFavourites);
 router.delete('/user/favourites', DeleteFromFavourites);
 router.get('/user/favourites', GetUserFavourites);
+router.get('/user/searchResults', SearchRecipesAction);
 router.get('/token', VerifyToken, (req,res)=>{
   res.status(200).json({msg:'accessToken'})
-})
+});
 
 export default router;
