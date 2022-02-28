@@ -3,12 +3,15 @@ import {connect} from "react-redux";
 import Recipe from "./Recipe";
 
 function Favourites(props) {
-    let favouriteRecipesArr = Object.values(props.favouriteRecipes)
+    let favouriteRecipesArr = Object.values(props.favouriteRecipes);
+    console.log(favouriteRecipesArr.length);
 
     return (
-        <div className="favourites">
+        <div className="container">
             <h1 className="favourite-h1">My Cookbook</h1>
-            {props.userInfo? 'You have not yet added any recipes to your favorites'  : 'You need to log in to add and view your favorites'}
+            {props.userInfo? ''  : 'You need to log in to add and view your favorites'}
+            {favouriteRecipesArr.length === 0 &&
+                <h5>You do not have favorites yet</h5> }
             {favouriteRecipesArr !== [] &&
                 favouriteRecipesArr.map(recipe => <Recipe key={recipe.uri} recipe={recipe}/>)}
         </div>

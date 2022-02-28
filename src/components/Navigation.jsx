@@ -1,28 +1,24 @@
 import React from "react";
 import {NavLink, Route} from "react-router-dom";
-import logoPng from '../assets/logo.png';
-import logo from '../assets/logo.jpeg';
+import cookieLogo from '../assets/cookies.png';
 import {connect} from "react-redux";
-import Login from "./Login";
 import {logoutFromServer} from "../actions";
-
 
 function Navigation(props) {
     return (
         <div className="navigation">
             <nav className="navbar navbar-expand ">
+                <NavLink className="navbar-brand" to="/">
+                    <img src={cookieLogo} alt="Logo" className="logo"/>
+                    <p className="logo-text">Cookaye</p>
+                </NavLink>
                 <div className="container">
-                    <NavLink className="navbar-brand" to="/">
-                        {/*<img src={logo} alt="Logo" className="logo"/>*/}
-                        {/*<img src={logoPng} alt="Logo" className="logo"/>*/}
-                        <img src={logo} alt="Logo" className="logo"/>
-                    </NavLink>
                     <div>
                         <ul className="navbar-nav ml-auto">
                             {
                                 props.userInfo === null &&
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/login">
+                                    <NavLink className="nav-link login-text" to="/login" >
                                         Login
                                     </NavLink>
                                 </li>
@@ -31,9 +27,9 @@ function Navigation(props) {
                                 props.userInfo !== null &&
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/home">
-                                        <div>
-                                            <a href="#" onClick={props.logout}>LOGOUT</a>
-                                        </div>
+                                        {/*<div>*/}
+                                            <a href="#" onClick={props.logout} className="Logout-text">Logout</a>
+                                        {/*</div>*/}
                                     </NavLink>
                                 </li>
                             }
@@ -41,7 +37,7 @@ function Navigation(props) {
 
                                 props.userInfo === null &&
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/register">
+                                    <NavLink className="nav-link register-text" to="/register">
                                         Register
                                     </NavLink>
                                 </li>                            }
@@ -59,8 +55,8 @@ function Navigation(props) {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/contact">
-                                    Contact
+                                <NavLink className="nav-link" to="/about">
+                                    About
                                 </NavLink>
                             </li>
                             <li className="nav-item">

@@ -14,17 +14,6 @@ function Home(props) {
     return (
         <div className="home">
             <div className="welcomeText">
-                <CookieConsent
-                    location="bottom"
-                    buttonText="Yes!"
-                    cookieName="myAwesomeCookieName2"
-                    style={{ background: "#f5deb3", color: "#000000"}}
-                    buttonStyle={{ color: "#000000", fontSize: "13px", background: "#e4b36b" }}
-                    expires={150}
-                >
-                    &#127850; This website uses cookies to enhance the user experience.{" "}
-                    <span style={{ fontSize: "10px" }}>Do you agree? </span>
-                </CookieConsent>
                 <div className="typewriter-wrapper">
                     <Typewriter
                         words={['Hi', props.userInfo? props.userInfo.name : '' ]}
