@@ -21,7 +21,9 @@ const Recipe = ({ addRecipeToFav ,recipe, favouriteRecipes, removeRecipeFromFav 
     // }
     return (
         <div className="recipe">
-            <h2>{label}</h2>
+            <h2 className="recipe-title">{label}</h2>
+            <br/>
+            <br/>
             <br/>
             <img src={image} alt={label} />
             <br/>

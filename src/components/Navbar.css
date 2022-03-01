@@ -1,4 +1,7 @@
-body{ margin: 0%; }
+/*navbar css*/
+body{
+    margin: 0%;
+}
 .Header {
     position: fixed;
     top: 0; /* Stick it to the top */
@@ -7,22 +10,19 @@ body{ margin: 0%; }
     display: grid;
     grid-template-areas: 'logo nav';
     z-index: 20;
-
     /* Cosmetics */
-    background-color: #282c34;
+    background-color: burlywood;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
 .Logo {
     grid-area: logo;
     height: 60px;
-    background-color: #282c34;
+    background-color: burlywood;
 }
 .logo-text{
     color: white;
     padding-left: 0.5rem;
 }
-
 .Nav {
     display: grid;
     grid-area: nav;
@@ -52,7 +52,7 @@ body{ margin: 0%; }
     font-size: 20px;
     color: #fff;
     font-weight: 600;
-    background-color: #282c34;
+    background-color: burlywood;
     border-radius: 10px;
     cursor: pointer;
     transition: 70ms;
@@ -63,7 +63,6 @@ body{ margin: 0%; }
     box-shadow: 0px 2px 0px 0px wheat;
     background-color: wheat;
 }
-
 .Burger {
     display: none;
     grid-area: burger;
@@ -79,7 +78,7 @@ body{ margin: 0%; }
 .Burger:active {
     transform: scale(1.2);
 }
-
+/*responsive nav*/
 @media (max-width: 700px) {
     .Header {
         grid-template-areas: 'logo burger' 'nav nav';
@@ -87,10 +86,9 @@ body{ margin: 0%; }
     .Nav {
         grid-template-rows: repeat(4, auto);
         grid-template-columns: none;
-        grid-row-gap: 20px;
-
-        padding: 30px 0 30px;
-        background: rgba(40, 44, 47, 0.95);
+        grid-row-gap: 1rem;
+        padding: 2rem 0 2rem;
+        background: burlywood;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;

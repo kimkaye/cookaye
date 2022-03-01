@@ -6,6 +6,7 @@
   list-style-type: none;
   outline: none;
 }
+/*Recipes page css*/
 .RecipePage{
   display: flex;
   flex-direction: column;
@@ -125,32 +126,8 @@
   color: burlywood;
   font-size: 1.3rem;
 }
-/*.navbar{*/
-/*  background-color: burlywood;*/
-/*  color: white;*/
-/*  height: 80px;*/
-/*}*/
-/*.nav-link{*/
-/*  color: white;*/
-/*}*/
-/*.logo {*/
-/*  display: inline-block;*/
-/*  vertical-align: top;*/
-/*  padding-top: 1.5rem;*/
-/*  width: 5rem;*/
-/*  height: 5rem;*/
-/*}*/
-.footer{
-  position: fixed;
-  bottom: 0; /* Stick it to the bottom */
-  max-height: 70px;
-  width: 100vw;
-  display: grid;
-  grid-template-areas: 'logo nav';
-  /* Cosmetics */
-  background-color: #282c34;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
+
+/*Home page css*/
 
 .ImageCarousel{
   width: 30rem;
@@ -161,8 +138,7 @@
   position: relative;
 }
 /*hide ImageCarousel on mobile*/
-
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .ImageCarousel {
     display: none;
   }
@@ -173,7 +149,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.welcomeText, favourite-h1{
+.welcomeText {
   width: 30rem;
   margin: 3rem;
   display: flex;
@@ -229,11 +205,60 @@
 .add-to-fav{
   font-size: small;
 }
-@media (min-width: 768px) {
+/*Recipes page responsive*/
+@media (max-width: 700px) {
   .searchButton {
     padding: 13px 50px 13px;
   }
+  .search-form{
+    width: 20rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d3d3d3;
+    border-radius: 0.5rem;
+    margin-bottom: 5rem;
+    box-shadow: 1rem 2rem 5rem #aaa;
+    position: relative;
+  }
+  .search-form input[type="submit"] {
+    width: 25%;
+    height: 2rem;
+    text-transform: uppercase;
+    background-color: burlywood;
+    color: #fff;
+  }
+  .search-form input{
+    font-size: 1rem;
+    border: none;
+    border-bottom: 0.1rem solid #ccc;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    height: 2rem;
+  }
+  .recipe {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #d3d3d3;
+    padding: 4rem;
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 2rem 3rem 5rem #aaa;
+  }
+  .recipe h2 {
+    background-color: rgba(161, 161, 161, 0.7);
+    border-radius: 0.5rem;
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 400;
+    text-shadow: 0 0.5rem 0.5rem #555;
+    color: #fff;
+    align-content: center;
+  }
 }
+/*About me page css*/
 .icon{
   color: black;
   padding: 3rem;
@@ -257,4 +282,15 @@
   transition: all 0.5s ease-in-out;
   align-content: center;
   align-items: center;
+}
+/*footer css*/
+.footer{
+  position: fixed;
+  bottom: 0; /* Stick it to the bottom */
+  max-height: 70px;
+  width: 100vw;
+  display: grid;
+  grid-template-areas: 'logo nav';
+  background-color: burlywood;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

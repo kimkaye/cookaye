@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RecipePage from './recipe-page/RecipePage'
-import Navbar from './Navbar'
+// import Navbar from './Navbar'
 import Login from './Login'
 import {
-    Navigation,
+    Navbar,
     Footer,
     Home,
     Favourites,

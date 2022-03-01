@@ -75,8 +75,8 @@ const Login = ({insertUserInfo, title, getFavouritesFromServer}) => {
 
     return(
         <>
+            <div className="container">
             <div>
-                <div>
                     <h3>{title} Form</h3>
                 </div>
                 <Box component='form'
@@ -93,7 +93,7 @@ const Login = ({insertUserInfo, title, getFavouritesFromServer}) => {
                             onChange={(e)=>setName(e.target.value)}
                         />
                     }
-
+                    <br/>
                     <TextField
                         sx={{m:1}}
                         id='email'
@@ -101,6 +101,7 @@ const Login = ({insertUserInfo, title, getFavouritesFromServer}) => {
                         variant='outlined'
                         onChange={(e)=>setEmail(e.target.value)}
                     />
+                    <br/>
                     <TextField
                         sx={{m:1}}
                         id='password'
@@ -109,13 +110,14 @@ const Login = ({insertUserInfo, title, getFavouritesFromServer}) => {
                         type="password"
                         onChange={(e)=>setPassword(e.target.value)}
                     />
+                    <br/>
                 </Box>
                 <Button variant="contained"
                         onClick={()=>handleAction(title)}
                 >{title}</Button>
+                <div>{msg}</div>
+                <div>{title=='Register'?<Link to='/login'>Login</Link>:<Link to='/register'>Register</Link>}</div>
             </div>
-            <div>{msg}</div>
-            <div>{title=='Register'?<Link to='/login'>Login</Link>:<Link to='/register'>Register</Link>}</div>
         </>
     )
 }

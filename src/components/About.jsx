@@ -13,11 +13,9 @@ function About(){
                         <h1 className="font-weight-light">About me</h1>
 
                 <h3>Kim Kaye</h3>
-
                         <div className="about-img">
                             <img src={about} alt="Logo" className="about-img"/>
                         </div>
-                {/*<div className="typewriter-wrapper">*/}
                 <br/>
                 <div className="typewriter-wrapper-about">
                 <Typewriter
@@ -31,7 +29,6 @@ function About(){
                 />
                 </div>
                 <br/>
-                {/*</div>*/}
                         <p>
                             Graduate of <b>B.Sc. degree in Information Systems with a specialization in Cyber</b>.
                             <br/>

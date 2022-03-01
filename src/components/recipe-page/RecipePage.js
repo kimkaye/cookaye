@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 import Recipe from "./Recipe";
 import Alert from "../Alert";
 import {connect} from 'react-redux';
@@ -34,8 +32,9 @@ const RecipePage = (props) => {
                     value={query}
                     autoComplete="off"
                     placeholder="Search Recipes"
+                    className="input-search"
                 />
-                <input type="submit" value="Search"/>
+                <input type="submit" value="Search" className="search-button"/>
             </form>
             <div className="recipes">
                 {props.isLoading &&
