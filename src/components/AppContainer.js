@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import RecipePage from './recipe-page/RecipePage'
 // import Navbar from './Navbar'
 import Login from './Login'
@@ -25,6 +25,7 @@ const AppContainer = (props) => {
             <br/>
             <br/>
             <Routes>
+
                 <Route path="/home" element={<Home />} />
                 <Route path="/favourites" element={<Favourites />} />
                 <Route path="/about" element={<About />} />
@@ -39,7 +40,7 @@ const AppContainer = (props) => {
                     props.userInfo === null &&
                     <Route path="/register" element={<Login title={'Register'}/>} />
                 }
-
+                <Route path="/" element={<Navigate replace to="/home" />} />
             </Routes>
             <Footer />
         </Router>
