@@ -21,6 +21,7 @@ function Favourites(props) {
 function mapStateToProps(state) {
     console.log("mapStateToProps")
     console.log(state)
+    console.log(state.userInfo)
     return {
         favouriteRecipes: state.favouriteRecipes,
         userInfo: state.userInfo

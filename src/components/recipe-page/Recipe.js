@@ -6,19 +6,16 @@ import IconButton from '@material-ui/core/IconButton';
 import {addFavouriteToServer, removeFavouriteFromServer, searchRecipesAction} from "../../actions";
 import {connect} from "react-redux";
 
-const Recipe = ({ addRecipeToFav ,recipe, favouriteRecipes, removeRecipeFromFav }) => {
+const Recipe = ({ addRecipeToFav ,recipe, favouriteRecipes, removeRecipeFromFav, userInfo }) => {
     const [show, setShow] = useState(false);
+    console.log(userInfo)
     const { label, image, url, ingredients, uri } = recipe.recipe;
     let isFavourite = false;
     let resultRecipe = favouriteRecipes[uri]
     if (resultRecipe){
         isFavourite = true
     }
-    // for(let i = 0; i < favouriteRecipes.length; i++){
-    //     if(favouriteRecipes[i].recipe.uri === recipe.recipe.uri){
-    //         isFavourite = true
-    //     }
-    // }
+
     return (
         <div className="recipe">
             <h2 className="recipe-title">{label}</h2>
@@ -28,24 +25,28 @@ const Recipe = ({ addRecipeToFav ,recipe, favouriteRecipes, removeRecipeFromFav 
             <img src={image} alt={label} />
             <br/>
 
-            {/*<button onClick={() => setShow(!show)}>Add to favourites &#10084</button>*/}
-            <button><a href={url} target="_blank" rel="noopener noreferrer">
+             <button><a href={url} target="_blank" rel="noopener noreferrer">
                 Recipe details
             </a></button>
             <br/>
             <button onClick={() => setShow(!show)}>Ingredients</button>
             {show && <RecipeDetails ingredients={ingredients} />}
             <br/>
-            {isFavourite &&
-                <IconButton className="favourites-button" onClick={() => { removeRecipeFromFav(recipe); }}  aria-label="delete" color="primary">
-                    <h1 className="add-to-fav">Remove favourite</h1>  <Favorite></Favorite>
-                </IconButton>
-
-            }
-            {!isFavourite &&
-                <IconButton className="favourites-button" onClick={() => { addRecipeToFav(recipe); }} aria-label="delete" color="primary">
-                    <h1 className="add-to-fav">Add to favourite</h1> <FavoriteBorderIcon></FavoriteBorderIcon>
-                </IconButton>
+            { userInfo &&
+                <div className="favourites-button">
+                    {isFavourite &&
+                       <IconButton className="favourites-button" onClick={() => {
+                            removeRecipeFromFav(recipe);
+                            }} aria-label="delete" color="primary">
+                            <h1 className="add-to-fav">Remove favourite</h1>  <Favorite></Favorite>
+                        </IconButton>
+                    }
+                    {!isFavourite &&
+                        <IconButton className="favourites-button" onClick={() => {addRecipeToFav(recipe);}} aria-label="delete" color="primary">
+                            <h1 className="add-to-fav">Add to favourite</h1> <FavoriteBorderIcon></FavoriteBorderIcon>
+                        </IconButton>
+                    }
+                </div>
             }
             <br/>
         </div>
@@ -60,10 +61,11 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 function mapStateToProps(state) {
-    console.log("mapStateToProps")
+    console.log("[Recipe] mapStateToProps")
     console.log(state)
     return {
-        favouriteRecipes: state.favouriteRecipes
+        favouriteRecipes: state.favouriteRecipes,
+        userInfo: state.userInfo
     }
 }
 

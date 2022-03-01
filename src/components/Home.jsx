@@ -1,13 +1,12 @@
 import React from "react";
 import ImageCarousel from "./ImageCarousel";
-import CookieConsent from "react-cookie-consent";
 import {
     Link
 } from "react-router-dom";
 import {connect} from "react-redux";
 import { Typewriter } from 'react-simple-typewriter'
 import cookie from '../assets/cookies.png'
-import logo from "../assets/logo.jpeg";
+
 
 
 function Home(props) {
